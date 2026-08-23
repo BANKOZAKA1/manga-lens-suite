@@ -1,0 +1,25 @@
+{
+  "kind": "engineering-smoke-test",
+  "eligible_for_release_benchmark": false,
+  "date": "2026-08-23",
+  "source": "pinned Yakuyomi app-sandbox demo06.jpg",
+  "language": "ja",
+  "target": "THA",
+  "profile": "balanced-over-lan-hq-pipeline",
+  "image_sha256": "532cd3df246e41558e7f245196e4428caa3ba2a938995de7721967a08bce905e",
+  "cold_render_v3_ms": 26931,
+  "warmed_samples_ms": [10470, 10877],
+  "observed_peak_vram_mib": 7548,
+  "gpu_total_vram_mib": 8151,
+  "oom": false,
+  "completed": true,
+  "warmed_result_sha256": "527043050e9ae9d5c9117b461e42a1038edfa9b02ddc2c4baa9be7224f43dfe1",
+  "two_consecutive_warmed_results_identical": true,
+  "cold_vs_warmed_changed_pixels_percent": 3.3434,
+  "human_observation": "Thai fit-to-balloon removed gross overflow on this page; untranslated SFX and some OCR region fragmentation remain.",
+  "limitations": [
+    "One page is not a percentile benchmark.",
+    "OCR, translation accuracy, cleanup, and layout thresholds were not scored by two human-reviewed 60-page rounds.",
+    "No vivo X200 Pro device run was available in this workspace."
+  ]
+}

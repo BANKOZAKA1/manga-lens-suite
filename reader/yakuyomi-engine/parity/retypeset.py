@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+"""只重跑排版（從快取的去字圖 + 區域），不重打 DeepSeek。用法：retypeset.py demo1 demo2 ..."""
+import os, sys, json
+import numpy as np
+from PIL import Image, ImageDraw
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import typeset_parity as ts
+
+OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "parity/out")
+
+for name in sys.argv[1:]:
+    im = Image.open(os.path.join(OUT, f"inpainted_{name}.png")).convert("RGB")
+    dr = ImageDraw.Draw(im)
+    npimg = np.array(im)
+    for r in json.load(open(os.path.join(OUT, f"cache_{name}.json"), encoding="utf-8")):
+        cht = r.get("cht", "")
+        x0, y0, x1, y1 = r["bbox"]
+        if (x1 - x0) < 8 or (y1 - y0) < 8 or ts.should_filter(r.get("jp", ""), cht, ts.FILTER_TEXT):
+            continue
+        tb = (x0, y0, x1, y1)
+        fg, bg = ts.resolve_colors(npimg, tb, r.get("fg") or (0, 0, 0), r.get("bg") or (255, 255, 255))
+        ts.draw_region(im, dr, cht, r, fg, bg)  # dir(AUTO 跟原文) + angle 斜框
+    im.save(os.path.join(OUT, f"final_{name}.png"))
+    print(f"{name} retypeset")

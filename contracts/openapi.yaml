@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: MangaLens HQ API
+  version: 1.0.0
+servers:
+  - url: http://LAN_HOST:8765
+security:
+  - bearerAuth: []
+paths:
+  /v1/health:
+    get:
+      security: []
+      responses:
+        '200': {description: Service and model health}
+  /v1/models:
+    get:
+      responses:
+        '200': {description: OpenAI-compatible model list}
+  /v1/chat/completions:
+    post:
+      description: OpenAI-compatible proxy to local TranslateGemma
+      responses:
+        '200': {description: Chat completion}
+  /v1/pages:
+    post:
+      description: Submit a page for HQ detection, OCR, translation, inpainting and typesetting
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [image]
+              properties:
+                image: {type: string, format: binary}
+                config: {type: string, description: JSON PageRequest options}
+      responses:
+        '202': {description: Job accepted}
+  /v1/jobs/{job_id}:
+    get:
+      parameters:
+        - in: path
+          name: job_id
+          required: true
+          schema: {type: string}
+      responses:
+        '200': {description: PageResult status and timings}
+    delete:
+      description: Cancel a queued or running job
+      parameters:
+        - in: path
+          name: job_id
+          required: true
+          schema: {type: string}
+      responses:
+        '200': {description: Cancelled or already-terminal job snapshot}
+  /v1/jobs/{job_id}/result:
+    get:
+      parameters:
+        - in: path
+          name: job_id
+          required: true
+          schema: {type: string}
+      responses:
+        '200': {description: Translated PNG}
+  /v1/jobs/{job_id}/events:
+    get:
+      description: WebSocket progress snapshots until terminal state
+      parameters:
+        - in: path
+          name: job_id
+          required: true
+          schema: {type: string}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,22 @@
+# manga-image-translator 釘住的參考版本（CLAUDE.md §7）
+# 程式碼以「最新 main」為準；模型用各自最新版
+# （beta-0.3 release 只是 model host，後續僅少數模型更新，一律取最新）。
+
+repo   = https://github.com/zyddnys/manga-image-translator
+branch = main
+commit = 95227a2  # 2026-07-28 查核：自 efdc229 起 4 個 commit 全為本機 offline MT
+                  # （M2M100 走 HuggingFace + CUDA/ROCm、NLLB 修正），watched paths 僅
+                  # config.py 加兩個 m2m100_hf enum 值；chatgpt.py / 偵測 / OCR / 去字
+                  # 零變更 ⇒ 判定無需 port（我們走雲端 LLM，CUDA/ROCm 對 Android 無意義）。
+date   = 2026-07-28
+
+# watched paths（最新 layout）：
+#   偵測 = manga_translator/detection/default.py (+ default_utils/)  ← DBNet（m-i-t 的 default 偵測器）
+#          模型 detect-20241225.ckpt（beta-0.3 release）
+#          ※ comic-text-detector（ctd.py + ctd_utils/）已於 2026-07-15 退役、整條移除 ⇒ 不再追
+#   OCR  = manga_translator/ocr/  （48px CTC）               ※ M1
+#   去字 = manga_translator/inpainting/  （AOT-GAN）          ← v2 去字模型（AOT-GAN 取代 LaMa）
+#   翻譯 = manga_translator/translators/chatgpt.py           ※ M2（最新版已含）
+#
+# 同步紀律：定期對 watched paths 跑  git diff <此 commit>..main，
+#           只追 prompt / 參數 / 模型 / provider 變更（§7）。

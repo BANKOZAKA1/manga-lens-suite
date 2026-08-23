@@ -1,0 +1,3 @@
+[submodule "yakuyomi-engine"]
+	path = yakuyomi-engine
+	url = https://github.com/joyeli/yakuyomi-engine.git

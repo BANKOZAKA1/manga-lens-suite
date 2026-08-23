@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MangaLens Overlay</string>
+    <string name="onboarding_welcome_title">ยินดีต้อนรับสู่ MangaLens Overlay</string>
+    <string name="notif_title">MangaLens Overlay · กำลังทำงาน</string>
+    <string name="a11y_floating_ball">ปุ่มลอย MangaLens</string>
+    <string name="process_text_label">แปลด้วย MangaLens</string>
+    <string name="process_text_need_overlay">MangaLens ต้องได้รับสิทธิ์แสดงทับแอปอื่น</string>
+    <string name="settings_translation_mode_fast">เร็ว</string>
+    <string name="settings_translation_mode_page">ทั้งหน้า</string>
+    <string name="settings_translation_mode_continuous">ต่อเนื่อง</string>
+    <string name="settings_translation_preset_apply">ใช้ชุดตั้งค่า</string>
+    <string name="settings_translation_preset_download_models">ดาวน์โหลดโมเดล</string>
+    <string name="settings_translation_output_horizontal">แนวนอน</string>
+    <string name="settings_translation_output_vertical">แนวตั้ง</string>
+    <string name="translation_library_terms_tab">ศัพท์เฉพาะ</string>
+    <string name="translation_library_memory_tab">ความจำคำแปล</string>
+</resources>

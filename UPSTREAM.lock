@@ -1,0 +1,11 @@
+# Pinned upstream sources
+
+reader.url=https://github.com/joyeli/Yakuyomi.git
+reader.commit=fd72c12de91b90ef5dd1cc5abc4d5579bb42c068
+reader.engine.url=https://github.com/joyeli/yakuyomi-engine.git
+reader.engine.commit=e9cf9ec41d9e09314aea2ed48538df558eecbe82
+overlay.url=https://github.com/ciddwd/overlay-translator.git
+overlay.commit=aa12e17c3f795b3afa75a90dcab1553d143192ca
+hq.url=https://github.com/zyddnys/manga-image-translator.git
+hq.commit=95227a2bb0fd306cd4f0c104d57284026f991b3a
+

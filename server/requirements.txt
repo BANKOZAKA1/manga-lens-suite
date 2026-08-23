@@ -1,0 +1,9 @@
+# The existing F:\AI\manga-image-translator-runtime environment already provides
+# compatible versions. This file documents the direct gateway dependencies only.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+httpx>=0.27,<1
+python-multipart>=0.0.12,<1
+pillow>=10,<13
+qrcode[pil]>=8,<9
+pythainlp>=5,<6

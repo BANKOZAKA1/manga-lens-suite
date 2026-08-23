@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- ===== 控件區 ===== -->
+        <Button
+            android:id="@+id/pickFolderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="選擇模型資料夾" />
+
+        <TextView
+            android:id="@+id/inpaintLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="去字方法：" />
+
+        <Spinner
+            android:id="@+id/inpaintSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="測試圖（點縮圖選取；多選→診斷、單選→可效能比較）" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/thumbStrip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <!-- ===== 選圖測試：跑「上方選取的縮圖」 ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="──── 選圖測試（跑上方選取的縮圖）────"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/detectButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="診斷" />
+
+            <Button
+                android:id="@+id/inpaintCompareButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="效能比較" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/repoDemoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="產生 repo demo（硬區 4 格行銷圖）" />
+
+        <Button
+            android:id="@+id/crossPageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="跨頁吞吐（同圖·併發 1→5·需連網）" />
+
+        <Button
+            android:id="@+id/ocrAbButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="OCR 內插比較（bilinear vs bicubic·效能+品質）" />
+
+        <!-- ===== 固定圖測試：跑「內建測試圖」，與上方縮圖選取無關 ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="──── 固定圖測試（跑內建圖·與上方選取無關）────"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/detectOcrCheckButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="偵測 + OCR 檢驗（內建 6 圖·產品設定·框/讀出/秒）" />
+
+        <Switch
+            android:id="@+id/genLogSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="產生 log 檔到資料夾" />
+
+        <Switch
+            android:id="@+id/genImgSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="產生 debug 圖到資料夾" />
+
+        <!-- ===== 輸出區（log + 結果圖；clearOutputs 清這裡，不再數 FIXED_VIEWS）===== -->
+        <LinearLayout
+            android:id="@+id/outputContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/logText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textSize="12sp"
+                android:textIsSelectable="true"
+                android:text="" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

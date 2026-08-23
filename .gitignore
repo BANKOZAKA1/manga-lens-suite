@@ -1,0 +1,16 @@
+artifacts/
+benchmark/private/
+benchmark/results/*
+!benchmark/results/smoke-2026-08-23.json
+server/.env
+server/.secrets/
+server/__pycache__/
+server/*.log
+reader/app/google-services.json
+**/.gradle/
+**/.cxx/
+**/build/
+**/local.properties
+*.jks
+*.keystore
+keystore.properties
